@@ -1,0 +1,3 @@
+Temperature:  18.9 deg C
+Pressure:  1013.39  hPa
+
