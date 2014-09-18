@@ -1,10 +1,10 @@
 Running:
 
-sudo python bmp183.py
+sudo python measure.py
 
 For continuous measurement run:
 
-watch -n 1 sudo python bmp183.py
+watch -n 1 sudo python measure.py
 
 Expected result looks similar to this:
 
