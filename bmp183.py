@@ -206,7 +206,7 @@ class bmp183():
 		X1 = (self.B2 * (self.B6 * self.B6 / 2**12)) / 2**11
 		X2 = self.AC2 * self.B6 / 2**11
 		X3 = X1 + X2
-		self.B3 = (((self.AC1 * 4 + X3) << self.BMP183_CMD['OVERSAMPLE_3']) + 2 ) / 4
+		self.B3 = (((numpy.uint32(self.AC1 * 4 + X3)) << self.BMP183_CMD['OVERSAMPLE_3']) + 2 ) / 4
 		X1 = self.AC3 * self.B6 / 2**13
 		X2 = (self.B1 * (self.B6 * self.B6 / 2**12)) / 2**16
 		X3 = ((X1 + X2) + 2) / 2**2
