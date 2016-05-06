@@ -1,6 +1,6 @@
 #!/bin/bash
 
-$branch="master"
+branch="master"
 
   git fetch origin
   # Check which files have changed
