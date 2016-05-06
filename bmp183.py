@@ -119,7 +119,7 @@ class bmp183():
     self.spi_transfer(addr, value, 0, 8)
 
   def spi_transfer(self, addr, value, rw, length):
-    # Bit banging at address "addr", "rw" indicates READ (1) or WRITE (1) operation
+    # Bit banging at address "addr", "rw" indicates READ (1) or WRITE (0) operation
     ret_value = 0
     if (rw == 0):
       spi_addr = addr & (~self.BMP183_CMD['READWRITE'])
