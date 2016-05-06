@@ -8,65 +8,65 @@ class bmp183():
   # BMP183 registers
   BMP183_REG = {
     # @ Calibration data
-    'CAL_AC1': 0xAA,
-    'CAL_AC2': 0xAC,
-    'CAL_AC3': 0xAE,
-    'CAL_AC4': 0xB0,
-    'CAL_AC5': 0xB2,
-    'CAL_AC6': 0xB4,
-    'CAL_B1':  0xB6,
-    'CAL_B2':  0xB8,
-    'CAL_MB':  0xBA,
-    'CAL_MC':  0xBC,
-    'CAL_MD':  0xBE,
+    'CAL_AC1':            0xAA,
+    'CAL_AC2':            0xAC,
+    'CAL_AC3':            0xAE,
+    'CAL_AC4':            0xB0,
+    'CAL_AC5':            0xB2,
+    'CAL_AC6':            0xB4,
+    'CAL_B1':             0xB6,
+    'CAL_B2':             0xB8,
+    'CAL_MB':             0xBA,
+    'CAL_MC':             0xBC,
+    'CAL_MD':             0xBE,
 
     # @ Chip ID. Value fixed to 0x55. Useful to check if communication works
-    'ID':       0xD0,
-    'ID_VALUE': 0x55,
+    'ID':                 0xD0,
+    'ID_VALUE':           0x55,
 
     # @ VER Undocumented
-    'VER': 0xD1,
+    'VER':                0xD1,
 
     # @ SOFT_RESET Write only. If set to 0xB6, will perform the same sequence as power on reset.
-    'SOFT_RESET': 0xE0,
+    'SOFT_RESET':         0xE0,
 
     # @ CTRL_MEAS Controls measurements
-    'CTRL_MEAS': 0xF4,
+    'CTRL_MEAS':          0xF4,
 
     # @ DATA
-    'DATA': 0xF6,
+    'DATA':               0xF6,
   }
 
   # BMP183 commands
   BMP183_CMD = {
     # @ Chip ID Value fixed to 0x55. Useful to check if communication works
-    'ID_VALUE': 0x55,
+    'ID_VALUE':           0x55,
 
     # SPI bit to indicate READ or WRITE operation
-    'READWRITE': 0x80,
+    'READWRITE':          0x80,
 
     # Read TEMPERATURE, Wait time 4.5 ms
-    'TEMP': 0x2E,
-    'TEMP_WAIT': 0.0045,
+    'TEMP':               0x2E,
+    'TEMP_WAIT':          0.0045,
 
     # Read PRESSURE
-    'PRESS': 0x34,  # 001
+    'PRESS':              0x34,  # 001
 
     # PRESSURE reading modes
     # Example usage: (PRESS || (OVERSAMPLE_2 << 4)
-    'OVERSAMPLE_0': 0x0,  # ultra low power, no oversampling, wait time 4.5 ms
-    'OVERSAMPLE_0_WAIT': 0.0045,
-    'OVERSAMPLE_1': 0x1,  # standard, 2 internal samples, wait time 7.5 ms
-    'OVERSAMPLE_1_WAIT': 0.0075,
-    'OVERSAMPLE_2': 0x2,  # high resolution, 4 internal samples, wait time 13.5 ms
-    'OVERSAMPLE_2_WAIT': 0.0135,
-    'OVERSAMPLE_3': 0x3,  # ultra high resolution, 8 internal samples, Wait time 25.5 ms
-    'OVERSAMPLE_3_WAIT': 0.0255,
+    'OVERSAMPLE_0':       0x0,  # ultra low power, no oversampling, wait time 4.5 ms
+    'OVERSAMPLE_0_WAIT':  0.0045,
+    'OVERSAMPLE_1':       0x1,  # standard, 2 internal samples, wait time 7.5 ms
+    'OVERSAMPLE_1_WAIT':  0.0075,
+    'OVERSAMPLE_2':       0x2,  # high resolution, 4 internal samples, wait time 13.5 ms
+    'OVERSAMPLE_2_WAIT':  0.0135,
+    'OVERSAMPLE_3':       0x3,  # ultra high resolution, 8 internal samples, Wait time 25.5 ms
+    'OVERSAMPLE_3_WAIT':  0.0255,
   }
 
   def __init__(self):
     self.temperature = 0
-    self.pressure = 0
+    self.pressure   = 0
     # Setup Raspberry PINS, as numbered on BOARD
     self.SCK = 23  # GPIO for SCK, other name SCLK
     self.SDO = 21  # GPIO for SDO, other name MISO
@@ -93,7 +93,7 @@ class bmp183():
     # GPIO initialisation
     GPIO.setmode(GPIO.BOARD)
     GPIO.setup(self.SCK, GPIO.OUT, initial=GPIO.HIGH)
-    GPIO.setup(self.CS, GPIO.OUT, initial=GPIO.HIGH)
+    GPIO.setup(self.CS,  GPIO.OUT, initial=GPIO.HIGH)
     GPIO.setup(self.SDI, GPIO.OUT)
     GPIO.setup(self.SDO, GPIO.IN)
 
