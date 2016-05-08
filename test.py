@@ -12,9 +12,6 @@ if pi.connected:
    # time.sleep(0.1)
    # (count, rx_data) = pi.spi_read(hndl, 3)
    pi.spi_close(hndl)
-
-   print count
-   for i in rx_data:
-       print rx_data[i]
+   AA = (rx_data[1] << 8) + rx_data[2]
 
 pi.stop()
