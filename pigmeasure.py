@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-from bmp183 import bmp183
+from pigbmp183 import bmp183
 
 bmp = bmp183()
 bmp.measure_pressure()

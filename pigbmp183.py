@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import pigpio
 import time
 import numpy
